@@ -46,6 +46,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>http://haugene.github.io/docker-transmission-openvpn/nordvpn-script/</loc>
+     <lastmod>2019-10-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>http://haugene.github.io/docker-transmission-openvpn/synology-nas/</loc>
      <lastmod>2019-10-13</lastmod>
      <changefreq>daily</changefreq>

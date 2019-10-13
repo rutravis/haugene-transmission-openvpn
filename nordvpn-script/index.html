@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="http://haugene.github.io/docker-transmission-openvpn/dockerenv/">
+        <link rel="canonical" href="http://haugene.github.io/docker-transmission-openvpn/nordvpn-script/">
       
       
       
@@ -38,7 +38,7 @@
     
     
       
-        <title>Use docker env file - docker-transmission-openvpn</title>
+        <title>NORDVPN update script - docker-transmission-openvpn</title>
       
     
     
@@ -79,6 +79,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="#nordvpn_api" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -101,7 +105,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Use docker env file
+                NORDVPN update script
               
             </span>
           
@@ -282,18 +286,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" title="Use docker env file" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../dockerenv/" title="Use docker env file" class="md-nav__link">
       Use docker env file
     </a>
-    
   </li>
 
     
@@ -325,11 +322,45 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="../nordvpn-script/" title="NORDVPN update script" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        NORDVPN update script
+      </label>
+    
+    <a href="./" title="NORDVPN update script" class="md-nav__link md-nav__link--active">
       NORDVPN update script
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nordvpn_api" class="md-nav__link">
+    NORDVPN API
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
     
@@ -376,29 +407,58 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nordvpn_api" class="md-nav__link">
+    NORDVPN API
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/haugene/docker-transmission-openvpn/edit/master/docs/dockerenv.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/haugene/docker-transmission-openvpn/edit/master/docs/nordvpn-script.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Use docker env file</h1>
+                  <h1>NORDVPN update script</h1>
                 
-                <p>Another way is to use a docker env file where you can easily store all your env variables and maintain multiple configurations for different providers.
-In the GitHub repository there is a provided DockerEnv file with all the current transmission and openvpn environment variables. You can use this to create local configurations
-by filling in the details and removing the # of the ones you want to use.</p>
-<p>Please note that if you pass in env. variables on the command line these will override the ones in the env file.</p>
-<p>See explanation of variables above.
-To use this env file, use the following to run the docker image:</p>
-<pre><code>$ docker run --cap-add=NET_ADMIN --device=/dev/net/tun -d \
-              -v /your/storage/path/:/data \
-              -v /etc/localtime:/etc/localtime:ro \
-              --env-file /your/docker/env/file \
-              -p 9091:9091 \
-              haugene/transmission-openvpn
-</code></pre>
+                <h2 id="nordvpn_api">NORDVPN API<a class="headerlink" href="#nordvpn_api" title="Permanent link">&para;</a></h2>
+<p>The update script is based on the  NordVpn API. The API sends back the best recommended config file based on the filters given.</p>
+<p>Available ENV variables in the container to define via the NORDNVPN API the file to use are:
+* NORDVPN_COUNTRY: (values code: https://api.nordvpn.com/v1/servers/countries)
+* NORDVPN_CATEGORY: (values identifier: https://api.nordvpn.com/v1/servers/groups)
+* NORDVPN_PROTOCOL: tcp or udp (values identifier more available at https://api.nordvpn.com/v1/technologies, may need script adaptation)</p>
+<p>the file is then download using the API to find the best server according to the variables, here an albanian, using tcp:
+* selecting server (limit answer to 1): [ANSWER]= https://api.nordvpn.com/v1/servers/recommendations?filters[country_id]=2&amp;filters[servers_technologies][identifier]=openvpn_tcp&amp;filters[servers_group][identifier]=legacy_group_category&amp;limit=1
+* download selected server's config: https://downloads.nordcdn.com/configs/files/ovpn_[NORDVPN_PROTOCOL]/servers/[ANSWER.0.HOSTNAME][] =&gt; https://downloads.nordcdn.com/configs/files/ovpn_tcp/servers/al9.nordvpn.com.tcp.ovpn</p>
+<p>A possible evolution would be to check server's load to select the most available one.
+* limit numbers of returned server to 10
+* use https://api.nordvpn.com/server/stats to collect cpu's load
+* select the more available server.</p>
                 
                   
                 
@@ -419,7 +479,7 @@ To use this env file, use the following to run the docker image:</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../rss-plugin/" title="RSS plugin" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../run-on-arm/" title="Running on ARM" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -428,19 +488,19 @@ To use this env file, use the following to run the docker image:</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                RSS plugin
+                Running on ARM
               </span>
             </div>
           </a>
         
         
-          <a href="../access/" title="Access" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../synology-nas/" title="Synology NAS" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Access
+                Synology NAS
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
