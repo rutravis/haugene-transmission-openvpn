@@ -448,19 +448,44 @@
                 
                 <h2 id="nordvpn_api">NORDVPN API<a class="headerlink" href="#nordvpn_api" title="Permanent link">&para;</a></h2>
 <p>The update script is based on the NordVPN API. The API sends back the best recommended OpenVPN configuration file based on the filters given.</p>
-<p>Available ENV variables in the container to define via the NordVPN API the file to use are:
-| Variable           | Function                                                                                                                                                            | Example                       |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| <code>NORDVPN_COUNTRY</code>  | Two character country code. See <a href="https://api.nordvpn.com/v1/servers/countries">/servers/countries</a> for full list.                                                   | <code>NORDVPN_COUNTRY=US</code>          |
-| <code>NORDVPN_CATEGORY</code> | Server type (P2P, Standard, etc). See <a href="https://api.nordvpn.com/v1/servers/groups">/servers/groups</a> for full list. Use either <code>title</code> or <code>identifier</code> from the list. | <code>NORDVPN_CATEGORY=legacy_p2p</code> |
-| <code>NORDVPN_PROTOCOL</code> | Either <code>tcp</code> or <code>udp</code>. (values identifier more available at https://api.nordvpn.com/v1/technologies, may need script adaptation)                                    | <code>NORDVPN_PROTOCOL=tcp</code>        |</p>
-<p>The file is then downloaded using the API to find the best server according to the variables, here an albanian, using tcp:
-* selecting server (limit answer to 1): [ANSWER]= https://api.nordvpn.com/v1/servers/recommendations?filters[country_id]=2&amp;filters[servers_technologies][identifier]=openvpn_tcp&amp;filters[servers_group][identifier]=legacy_group_category&amp;limit=1
-* download selected server's config: https://downloads.nordcdn.com/configs/files/ovpn_[NORDVPN_PROTOCOL]/servers/[ANSWER.0.HOSTNAME][] =&gt; https://downloads.nordcdn.com/configs/files/ovpn_tcp/servers/al9.nordvpn.com.tcp.ovpn</p>
-<p>A possible evolution would be to check server's load to select the most available one.
-* limit numbers of returned server to 10
-* use https://api.nordvpn.com/server/stats to collect cpu's load
-* select the more available server.</p>
+<p>Available ENV variables in the container to define via the NordVPN API the file to use are:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Function</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NORDVPN_COUNTRY</code></td>
+<td>Two character country code. See <a href="https://api.nordvpn.com/v1/servers/countries">/servers/countries</a> for full list.</td>
+<td><code>NORDVPN_COUNTRY=US</code></td>
+</tr>
+<tr>
+<td><code>NORDVPN_CATEGORY</code></td>
+<td>Server type (P2P, Standard, etc). See <a href="https://api.nordvpn.com/v1/servers/groups">/servers/groups</a> for full list. Use either <code>title</code> or <code>identifier</code> from the list.</td>
+<td><code>NORDVPN_CATEGORY=legacy_p2p</code></td>
+</tr>
+<tr>
+<td><code>NORDVPN_PROTOCOL</code></td>
+<td>Either <code>tcp</code> or <code>udp</code>. (values identifier more available at https://api.nordvpn.com/v1/technologies, may need script adaptation)</td>
+<td><code>NORDVPN_PROTOCOL=tcp</code></td>
+</tr>
+</tbody>
+</table>
+<p>The file is then downloaded using the API to find the best server according to the variables, here an albanian, using tcp:</p>
+<ul>
+<li>selecting server (limit answer to 1): [ANSWER]= https://api.nordvpn.com/v1/servers/recommendations?filters[country_id]=2&amp;filters[servers_technologies][identifier]=openvpn_tcp&amp;filters[servers_group][identifier]=legacy_group_category&amp;limit=1</li>
+<li>download selected server's config: https://downloads.nordcdn.com/configs/files/ovpn_[NORDVPN_PROTOCOL]/servers/[ANSWER.0.HOSTNAME][] =&gt; https://downloads.nordcdn.com/configs/files/ovpn_tcp/servers/al9.nordvpn.com.tcp.ovpn</li>
+</ul>
+<p>A possible evolution would be to check server's load to select the most available one.</p>
+<ul>
+<li>limit numbers of returned server to 10</li>
+<li>use https://api.nordvpn.com/server/stats to collect cpu's load</li>
+<li>select the more available server.</li>
+</ul>
                 
                   
                 
