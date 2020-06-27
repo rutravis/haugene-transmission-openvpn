@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>http://haugene.github.io/docker-transmission-openvpn/</loc>
-     <lastmod>2020-06-12</lastmod>
+     <lastmod>2020-06-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://haugene.github.io/docker-transmission-openvpn/run-from-docker-registry/</loc>
-     <lastmod>2020-06-12</lastmod>
+     <lastmod>2020-06-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://haugene.github.io/docker-transmission-openvpn/supported-providers/</loc>
-     <lastmod>2020-06-12</lastmod>
+     <lastmod>2020-06-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://haugene.github.io/docker-transmission-openvpn/arguments/</loc>
-     <lastmod>2020-06-12</lastmod>
+     <lastmod>2020-06-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://haugene.github.io/docker-transmission-openvpn/custom-scripts/</loc>
-     <lastmod>2020-06-12</lastmod>
+     <lastmod>2020-06-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://haugene.github.io/docker-transmission-openvpn/rss-plugin/</loc>
-     <lastmod>2020-06-12</lastmod>
+     <lastmod>2020-06-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://haugene.github.io/docker-transmission-openvpn/dockerenv/</loc>
-     <lastmod>2020-06-12</lastmod>
+     <lastmod>2020-06-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://haugene.github.io/docker-transmission-openvpn/access/</loc>
-     <lastmod>2020-06-12</lastmod>
+     <lastmod>2020-06-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://haugene.github.io/docker-transmission-openvpn/run-on-arm/</loc>
-     <lastmod>2020-06-12</lastmod>
+     <lastmod>2020-06-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://haugene.github.io/docker-transmission-openvpn/nordvpn-script/</loc>
-     <lastmod>2020-06-12</lastmod>
+     <lastmod>2020-06-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://haugene.github.io/docker-transmission-openvpn/synology-nas/</loc>
-     <lastmod>2020-06-12</lastmod>
+     <lastmod>2020-06-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://haugene.github.io/docker-transmission-openvpn/systemd-integration/</loc>
-     <lastmod>2020-06-12</lastmod>
+     <lastmod>2020-06-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://haugene.github.io/docker-transmission-openvpn/known-issues/</loc>
-     <lastmod>2020-06-12</lastmod>
+     <lastmod>2020-06-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
