@@ -85,11 +85,15 @@ fi
 
 # add OpenVPN user/pass
 if [[ "${OPENVPN_USERNAME}" == "**None**" ]] || [[ "${OPENVPN_PASSWORD}" == "**None**" ]] ; then
-  if [[ ! -f /config/openvpn-credentials.txt ]] ; then
+  if [[ -f /var/run/secrets/transmission-user-pass ]] ; then
+    echo "Found OpenVPN credentials in Docker secrets."
+    cp /var/run/secrets/transmission-user-pass /config/openvpn-credentials.txt
+  elif [[ -f /config/openvpn-credentials.txt ]] ; then
+    echo "Found existing OPENVPN credentials at /config/openvpn-credentials.txt"
+  else
     echo "OpenVPN credentials not set. Exiting."
     exit 1
   fi
-  echo "Found existing OPENVPN credentials at /config/openvpn-credentials.txt"
 else
   echo "Setting OPENVPN credentials..."
   mkdir -p /config
