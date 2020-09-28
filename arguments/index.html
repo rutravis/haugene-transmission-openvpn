@@ -316,6 +316,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#changing_logging_locations" class="md-nav__link">
+    Changing logging locations
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -518,6 +525,13 @@
         <li class="md-nav__item">
   <a href="#dropping_default_route_from_iptables_advanced" class="md-nav__link">
     Dropping default route from iptables (advanced)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing_logging_locations" class="md-nav__link">
+    Changing logging locations
   </a>
   
 </li>
@@ -795,6 +809,10 @@ You may set the following parameters to customize the user id that runs transmis
 This might lead to the default route (your untunneled connection) to be used.</p>
 <p>To drop the default route set the environment variable <code>DROP_DEFAULT_ROUTE</code> to <code>true</code>.</p>
 <p><em>Note</em>: This is not compatible with all VPNs. You can check your iptables routing with the <code>ip r</code> command in a running container.</p>
+<h3 id="changing_logging_locations">Changing logging locations<a class="headerlink" href="#changing_logging_locations" title="Permanent link">&para;</a></h3>
+<p>By default Transmission will log to a file in <code>TRANSMISSION_HOME/transmission.log</code>. </p>
+<p>To log to stdout instead set the environment variable <code>LOG_TO_STDOUT</code> to <code>true</code>.</p>
+<p><em>Note</em>: By default stdout is what container engines read logs from. Set this to true to have Tranmission logs in commands like <code>docker logs</code> and <code>kubectl logs</code>. OpenVPN currently only logs to stdout.</p>
                 
               
               
