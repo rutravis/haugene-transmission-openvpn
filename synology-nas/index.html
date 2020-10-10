@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.0.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.0.2">
     
     
       
@@ -179,7 +179,7 @@
 
 
   <li class="md-nav__item">
-    <a href=".." title="Home" class="md-nav__link">
+    <a href=".." class="md-nav__link">
       Home
     </a>
   </li>
@@ -191,7 +191,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../run-from-docker-registry/" title="Run from Docker registry" class="md-nav__link">
+    <a href="../run-from-docker-registry/" class="md-nav__link">
       Run from Docker registry
     </a>
   </li>
@@ -203,7 +203,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../supported-providers/" title="Supported providers" class="md-nav__link">
+    <a href="../supported-providers/" class="md-nav__link">
       Supported providers
     </a>
   </li>
@@ -215,7 +215,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../arguments/" title="Arguments" class="md-nav__link">
+    <a href="../arguments/" class="md-nav__link">
       Arguments
     </a>
   </li>
@@ -227,7 +227,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../custom-scripts/" title="Custom pre/post scripts" class="md-nav__link">
+    <a href="../custom-scripts/" class="md-nav__link">
       Custom pre/post scripts
     </a>
   </li>
@@ -239,7 +239,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../rss-plugin/" title="RSS plugin" class="md-nav__link">
+    <a href="../rss-plugin/" class="md-nav__link">
       RSS plugin
     </a>
   </li>
@@ -251,7 +251,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../dockerenv/" title="Use docker env file" class="md-nav__link">
+    <a href="../dockerenv/" class="md-nav__link">
       Use docker env file
     </a>
   </li>
@@ -263,7 +263,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../access/" title="Access" class="md-nav__link">
+    <a href="../access/" class="md-nav__link">
       Access
     </a>
   </li>
@@ -275,7 +275,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../run-on-arm/" title="Running on ARM" class="md-nav__link">
+    <a href="../run-on-arm/" class="md-nav__link">
       Running on ARM
     </a>
   </li>
@@ -287,7 +287,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../nordvpn-script/" title="NORDVPN update script" class="md-nav__link">
+    <a href="../nordvpn-script/" class="md-nav__link">
       NORDVPN update script
     </a>
   </li>
@@ -305,7 +305,7 @@
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
-    <a href="./" title="Synology NAS" class="md-nav__link md-nav__link--active">
+    <a href="./" class="md-nav__link md-nav__link--active">
       Synology NAS
     </a>
     
@@ -318,7 +318,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../systemd-integration/" title="Systemd integration" class="md-nav__link">
+    <a href="../systemd-integration/" class="md-nav__link">
       Systemd integration
     </a>
   </li>
@@ -330,7 +330,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../known-issues/" title="Known issues, tips and tricks" class="md-nav__link">
+    <a href="../known-issues/" class="md-nav__link">
       Known issues, tips and tricks
     </a>
   </li>
@@ -380,7 +380,6 @@ if ( !(lsmod | grep -q &quot;^tun\s&quot;) ); then
   insmod /lib/modules/tun.ko
 fi
 </code></pre>
-
 <ul>
 <li>Save the file with [escape] + <code>:wq!</code></li>
 <li>Go in the folder containing your script : <code>cd /volume1/foldername/</code></li>
@@ -393,7 +392,6 @@ fi
 <pre><code>nameserver 8.8.8.8
 nameserver 8.8.4.4
 </code></pre>
-
 <ul>
 <li>Save the file with [escape] + <code>:wq!</code></li>
 <li>Create your Docker container with the following command. Note the following things you should change or may want to consider changing:</li>
@@ -421,7 +419,6 @@ docker run \
     --name &quot;transmission-openvpn-syno&quot; \
     haugene/transmission-openvpn:latest
 </code></pre>
-
 <ul>
 <li>To make it work after a nas restart, create an automated task in your synology web interface : go to <strong>Settings Panel &gt; Task Scheduler </strong> create a new task that run <code>/volume1/foldername/TUN.sh</code> as root (select '<em>root</em>' in 'user' selectbox). This task will start module that permit the container to run, you can make a task that run on startup. These kind of task doesn't work on my nas so I just made a task that run every minute.</li>
 <li>Enjoy</li>
@@ -444,7 +441,7 @@ docker run \
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../nordvpn-script/" title="NORDVPN update script" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../nordvpn-script/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -459,7 +456,7 @@ docker run \
           </a>
         
         
-          <a href="../systemd-integration/" title="Systemd integration" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../systemd-integration/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
@@ -493,7 +490,7 @@ docker run \
     </div>
     
       <script src="../assets/javascripts/vendor.77e55a48.min.js"></script>
-      <script src="../assets/javascripts/bundle.aa3f9871.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../assets/javascripts/bundle.9554a270.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({

@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.0.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.0.2">
     
     
       
@@ -184,7 +184,7 @@
 
 
   <li class="md-nav__item">
-    <a href=".." title="Home" class="md-nav__link">
+    <a href=".." class="md-nav__link">
       Home
     </a>
   </li>
@@ -196,7 +196,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../run-from-docker-registry/" title="Run from Docker registry" class="md-nav__link">
+    <a href="../run-from-docker-registry/" class="md-nav__link">
       Run from Docker registry
     </a>
   </li>
@@ -208,7 +208,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../supported-providers/" title="Supported providers" class="md-nav__link">
+    <a href="../supported-providers/" class="md-nav__link">
       Supported providers
     </a>
   </li>
@@ -220,7 +220,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../arguments/" title="Arguments" class="md-nav__link">
+    <a href="../arguments/" class="md-nav__link">
       Arguments
     </a>
   </li>
@@ -232,7 +232,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../custom-scripts/" title="Custom pre/post scripts" class="md-nav__link">
+    <a href="../custom-scripts/" class="md-nav__link">
       Custom pre/post scripts
     </a>
   </li>
@@ -244,7 +244,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../rss-plugin/" title="RSS plugin" class="md-nav__link">
+    <a href="../rss-plugin/" class="md-nav__link">
       RSS plugin
     </a>
   </li>
@@ -256,7 +256,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../dockerenv/" title="Use docker env file" class="md-nav__link">
+    <a href="../dockerenv/" class="md-nav__link">
       Use docker env file
     </a>
   </li>
@@ -268,7 +268,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../access/" title="Access" class="md-nav__link">
+    <a href="../access/" class="md-nav__link">
       Access
     </a>
   </li>
@@ -280,7 +280,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../run-on-arm/" title="Running on ARM" class="md-nav__link">
+    <a href="../run-on-arm/" class="md-nav__link">
       Running on ARM
     </a>
   </li>
@@ -292,7 +292,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../nordvpn-script/" title="NORDVPN update script" class="md-nav__link">
+    <a href="../nordvpn-script/" class="md-nav__link">
       NORDVPN update script
     </a>
   </li>
@@ -304,7 +304,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../synology-nas/" title="Synology NAS" class="md-nav__link">
+    <a href="../synology-nas/" class="md-nav__link">
       Synology NAS
     </a>
   </li>
@@ -316,7 +316,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../systemd-integration/" title="Systemd integration" class="md-nav__link">
+    <a href="../systemd-integration/" class="md-nav__link">
       Systemd integration
     </a>
   </li>
@@ -339,7 +339,7 @@
         <span class="md-nav__icon md-icon"></span>
       </label>
     
-    <a href="./" title="Known issues, tips and tricks" class="md-nav__link md-nav__link--active">
+    <a href="./" class="md-nav__link md-nav__link--active">
       Known issues, tips and tricks
     </a>
     
@@ -482,7 +482,6 @@ For example use googles dns servers by adding --dns 8.8.8.8 --dns 8.8.4.4 as par
 <p>By befault Transmission will always <a href="https://en.wikipedia.org/wiki/Tracker_scrape">scrape</a> trackers, even if all torrents have completed their activities, or they have been paused manually. This will cause Transmission to be always active, therefore never allow your host server to be inactive and go to sleep/hybernation/whatever. If this is something you want, you can add the following variable when creating the container. It will turn off a hidden setting in Tranmsission which will stop the application to scrape trackers for paused torrents. Transmission will become inactive, and your host will reach the desidered state.</p>
 <pre><code>-e &quot;TRANSMISSION_SCRAPE_PAUSED_TORRENTS_ENABLED=false&quot;
 </code></pre>
-
 <h4 id="running_it_on_a_nas">Running it on a NAS<a class="headerlink" href="#running_it_on_a_nas" title="Permanent link">&para;</a></h4>
 <p>Several popular NAS platforms supports Docker containers. You should be able to set up and configure this container using their web interfaces. Remember that you need a TUN/TAP device to run the container. To set up the device it's probably simplest to install a OpenVPN package for the NAS. This should set up the device. If not, there are some more detailed instructions below.</p>
 <h4 id="questions">Questions?<a class="headerlink" href="#questions" title="Permanent link">&para;</a></h4>
@@ -507,7 +506,7 @@ Using the latest stable version of Docker is always recommended. Support for old
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../systemd-integration/" title="Systemd integration" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../systemd-integration/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -542,7 +541,7 @@ Using the latest stable version of Docker is always recommended. Support for old
     </div>
     
       <script src="../assets/javascripts/vendor.77e55a48.min.js"></script>
-      <script src="../assets/javascripts/bundle.aa3f9871.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../assets/javascripts/bundle.9554a270.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
