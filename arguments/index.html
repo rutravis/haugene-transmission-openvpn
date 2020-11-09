@@ -266,6 +266,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#timezone_option" class="md-nav__link">
+    Timezone option
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#firewall_configuration_options" class="md-nav__link">
     Firewall configuration options
   </a>
@@ -467,6 +474,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#timezone_option" class="md-nav__link">
+    Timezone option
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#firewall_configuration_options" class="md-nav__link">
     Firewall configuration options
   </a>
@@ -604,6 +618,24 @@
 <td><code>CREATE_TUN_DEVICE</code></td>
 <td>Creates /dev/net/tun device inside the container, mitigates the need mount the device from the host</td>
 <td><code>CREATE_TUN_DEVICE=true</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="timezone_option">Timezone option<a class="headerlink" href="#timezone_option" title="Permanent link">&para;</a></h3>
+<p>Set a custom timezone in tz database format. Look <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">here</a> for a list of valid timezones. Defaults to UTC.</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Function</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TZ</code></td>
+<td>Set Timezone</td>
+<td><code>TZ=UTC</code></td>
 </tr>
 </tbody>
 </table>
