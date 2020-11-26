@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="http://haugene.github.io/docker-transmission-openvpn/systemd-integration/">
+        <link rel="canonical" href="http://haugene.github.io/docker-transmission-openvpn/v3/">
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
@@ -16,7 +16,7 @@
     
     
       
-        <title>Systemd integration - docker-transmission-openvpn</title>
+        <title>Version 3.0 released - we have some breaking changes (but not much) - docker-transmission-openvpn</title>
       
     
     
@@ -58,6 +58,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#version_30_released_-_we_have_some_breaking_changes_but_not_much" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -84,7 +89,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Systemd integration
+              Version 3.0 released - we have some breaking changes (but not much)
             
           </span>
         </div>
@@ -185,7 +190,7 @@
 
   <li class="md-nav__item">
     <a href=".." class="md-nav__link">
-      Home
+      Overview
     </a>
   </li>
 
@@ -196,8 +201,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../run-from-docker-registry/" class="md-nav__link">
-      Run from Docker registry
+    <a href="../building-blocks/" class="md-nav__link">
+      Image Building Blocks
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../vpn-networking/" class="md-nav__link">
+      VPN and Networking
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../run-container/" class="md-nav__link">
+      Running the container
     </a>
   </li>
 
@@ -220,8 +249,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../arguments/" class="md-nav__link">
-      Arguments
+    <a href="../provider-specific/" class="md-nav__link">
+      Provider specific settings
     </a>
   </li>
 
@@ -232,8 +261,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../custom-scripts/" class="md-nav__link">
-      Custom pre/post scripts
+    <a href="../config-options/" class="md-nav__link">
+      Configuration options
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../faq/" class="md-nav__link">
+      Frequently asked questions
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../tips-tricks/" class="md-nav__link">
+      Tips & Tricks
     </a>
   </li>
 
@@ -256,75 +309,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../dockerenv/" class="md-nav__link">
-      Use docker env file
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../access/" class="md-nav__link">
-      Access
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../run-on-arm/" class="md-nav__link">
-      Running on ARM
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../nordvpn-script/" class="md-nav__link">
-      NORDVPN update script
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
-      Systemd integration
-    </a>
-    
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../known-issues/" class="md-nav__link">
-      Known issues, tips and tricks
+    <a href="../web-proxy/" class="md-nav__link">
+      Web Proxy
     </a>
   </li>
 
@@ -336,62 +322,50 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/haugene/docker-transmission-openvpn/edit/master/docs/systemd-integration.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/haugene/docker-transmission-openvpn/edit/master/docs/v3.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>Systemd integration</h1>
-                
-                <p>On many modern linux systems, including Ubuntu, systemd can be used to start the transmission-openvpn at boot time, and restart it after any failure.</p>
-<p>Save the following as <code>/etc/systemd/system/transmission-openvpn.service</code>, and replace the OpenVPN PROVIDER/USERNAME/PASSWORD directives with your settings, and add any other directives that you're using.</p>
-<p>This service is assuming that there is a <code>bittorrent</code> user set up with a home directory at <code>/home/bittorrent/</code>. The data directory will be mounted at <code>/home/bittorrent/data/</code>. This can be changed to whichever user and location you're using.</p>
-<p>OpenVPN is set to exit if there is a connection failure. OpenVPN exiting triggers the container to also exit, then the <code>Restart=always</code> definition in the <code>transmission-openvpn.service</code> file tells systems to restart things again.</p>
-<pre><code>[Unit]
-Description=haugene/transmission-openvpn docker container
-After=docker.service
-Requires=docker.service
-
-[Service]
-User=bittorrent
-TimeoutStartSec=0
-ExecStartPre=-/usr/bin/docker kill transmission-openvpn
-ExecStartPre=-/usr/bin/docker rm transmission-openvpn
-ExecStartPre=/usr/bin/docker pull haugene/transmission-openvpn
-ExecStart=/usr/bin/docker run \
-        --name transmission-openvpn \
-        --cap-add=NET_ADMIN \
-        -v /home/bittorrent/data/:/data \
-        -e &quot;OPENVPN_PROVIDER=TORGUARD&quot; \
-        -e &quot;OPENVPN_USERNAME=bittorrent@example.com&quot; \
-        -e &quot;OPENVPN_PASSWORD=hunter2&quot; \
-        -e &quot;OPENVPN_CONFIG=CA Toronto&quot; \
-        -e &quot;OPENVPN_OPTS=--inactive 3600 --ping 10 --ping-exit 60&quot; \
-        -e &quot;TRANSMISSION_UMASK=0&quot; \
-        -p 9091:9091 \
-        --dns 8.8.8.8 \
-        --dns 8.8.4.4 \
-        haugene/transmission-openvpn
-Restart=always
-RestartSec=5
-
-[Install]
-WantedBy=multi-user.target
-</code></pre>
-<p>Then enable and start the new service with:</p>
-<pre><code>$ sudo systemctl enable /etc/systemd/system/transmission-openvpn.service
-$ sudo systemctl restart transmission-openvpn.service
-</code></pre>
-<p>If it is stopped or killed in any fashion, systemd will restart the container. If you do want to shut it down, then run the following command and it will stay down until you restart it.</p>
-<pre><code>$ sudo systemctl stop transmission-openvpn.service
-# Later ...
-$ sudo systemctl start transmission-openvpn.service
-</code></pre>
+                <h1 id="version_30_released_-_we_have_some_breaking_changes_but_not_much">Version 3.0 released - we have some breaking changes (but not much)<a class="headerlink" href="#version_30_released_-_we_have_some_breaking_changes_but_not_much" title="Permanent link">&para;</a></h1>
+<p>Those of you who are following this project knows that we have had some larger changes coming for a while.
+Hobby projects often get last in line for some love and care, and it took longer than I hoped but here we are.</p>
+<p>Some highlights on version 3.0:</p>
+<ul>
+<li>We're dropping the ubuntu based image and making alpine the default (reduce double maintenance)</li>
+<li>We're making Transmission settings persistent by default, removing the need for all the environment variables (but keeping support for it)</li>
+<li>We're making it easier to provide your own OpenVPN (.ovpn) config file - adding scripts in the container to modify provider configs as needed to fit the container setup. (still in early stages at this point)</li>
+<li>We're adding a standardized way to add scripts for doing necessary setup of a provider. This usually means to download a .ovpn config bundle, unpack it and modify it correctly to work in this container.</li>
+</ul>
+<p>Hopefully these changes will improve the usability of this container. As maintainers we also hope that it will free up time to keep the container up to date and stable instead of managing thousands of .ovpn files coming and going.</p>
+<p>I'll try to keep a list of breaking changes here, and add to it if we come across more:</p>
+<ul>
+<li>The CREATE_TUN_DEVICE variable now defaults to true. Mounting /dev/net/tun will lead to an error message in the logs unless you explicitly set it to false.</li>
+<li>The DOCKER_LOG variable is renamed to LOG_TO_STDOUT</li>
+<li>If Transmission is running but you can't connect to torrents, try deleting (or rename to .backup) the settings.json file and restart.</li>
+</ul>
+<p>PS: Now more than ever. We appreciate that you report bugs and issues when you find them. But as there might be more than ususal, please make sure you search and look for a similar one before possibly creating a duplicate.
+And you can always revert back to the latest tag on the 2.x versions which is 2.14. Instead of running with <code>haugene/transmission-openvpn</code> simply use <code>haugene/transmission-openvpn:2.14</code> instead. We hope that won't be necessary though :)</p>
                 
               
               
@@ -406,41 +380,6 @@ $ sudo systemctl start transmission-openvpn.service
       
         
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
-        
-          <a href="../nordvpn-script/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-            </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                NORDVPN update script
-              </div>
-            </div>
-          </a>
-        
-        
-          <a href="../known-issues/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Known issues, tips and tricks
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

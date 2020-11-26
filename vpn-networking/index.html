@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="http://haugene.github.io/docker-transmission-openvpn/access/">
+        <link rel="canonical" href="http://haugene.github.io/docker-transmission-openvpn/vpn-networking/">
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
@@ -16,7 +16,7 @@
     
     
       
-        <title>Access - docker-transmission-openvpn</title>
+        <title>VPN and Networking - docker-transmission-openvpn</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#access_the_webui" class="md-skip">
+        <a href="#coming_soon" class="md-skip">
           Skip to content
         </a>
       
@@ -89,7 +89,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Access
+              VPN and Networking
             
           </span>
         </div>
@@ -190,7 +190,7 @@
 
   <li class="md-nav__item">
     <a href=".." class="md-nav__link">
-      Home
+      Overview
     </a>
   </li>
 
@@ -201,68 +201,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../run-from-docker-registry/" class="md-nav__link">
-      Run from Docker registry
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../supported-providers/" class="md-nav__link">
-      Supported providers
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../arguments/" class="md-nav__link">
-      Arguments
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../custom-scripts/" class="md-nav__link">
-      Custom pre/post scripts
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../rss-plugin/" class="md-nav__link">
-      RSS plugin
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../dockerenv/" class="md-nav__link">
-      Use docker env file
+    <a href="../building-blocks/" class="md-nav__link">
+      Image Building Blocks
     </a>
   </li>
 
@@ -280,12 +220,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Access
+        VPN and Networking
         <span class="md-nav__icon md-icon"></span>
       </label>
     
     <a href="./" class="md-nav__link md-nav__link--active">
-      Access
+      VPN and Networking
     </a>
     
       
@@ -298,6 +238,13 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#coming_soon" class="md-nav__link">
+    COMING SOON
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#access_the_webui" class="md-nav__link">
@@ -346,8 +293,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../run-on-arm/" class="md-nav__link">
-      Running on ARM
+    <a href="../run-container/" class="md-nav__link">
+      Running the container
     </a>
   </li>
 
@@ -358,8 +305,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../nordvpn-script/" class="md-nav__link">
-      NORDVPN update script
+    <a href="../supported-providers/" class="md-nav__link">
+      Supported providers
     </a>
   </li>
 
@@ -370,8 +317,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../systemd-integration/" class="md-nav__link">
-      Systemd integration
+    <a href="../provider-specific/" class="md-nav__link">
+      Provider specific settings
     </a>
   </li>
 
@@ -382,8 +329,56 @@
 
 
   <li class="md-nav__item">
-    <a href="../known-issues/" class="md-nav__link">
-      Known issues, tips and tricks
+    <a href="../config-options/" class="md-nav__link">
+      Configuration options
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../faq/" class="md-nav__link">
+      Frequently asked questions
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../tips-tricks/" class="md-nav__link">
+      Tips & Tricks
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../rss-plugin/" class="md-nav__link">
+      RSS plugin
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../web-proxy/" class="md-nav__link">
+      Web Proxy
     </a>
   </li>
 
@@ -408,6 +403,13 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#coming_soon" class="md-nav__link">
+    COMING SOON
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#access_the_webui" class="md-nav__link">
@@ -455,14 +457,17 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/haugene/docker-transmission-openvpn/edit/master/docs/access.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/haugene/docker-transmission-openvpn/edit/master/docs/vpn-networking.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>Access</h1>
+                  <h1>VPN and Networking</h1>
                 
-                <h2 id="access_the_webui">Access the WebUI<a class="headerlink" href="#access_the_webui" title="Permanent link">&para;</a></h2>
+                <h2 id="coming_soon">COMING SOON<a class="headerlink" href="#coming_soon" title="Permanent link">&para;</a></h2>
+<p><strong>NOTE:</strong> This page is just moved from it's previous location. A re-write is coming and I know that
+there are links to this page that promises more than what's here now. I'm <a href="https://github.com/haugene/docker-transmission-openvpn/issues/1558">on it (#1558)</a></p>
+<h2 id="access_the_webui">Access the WebUI<a class="headerlink" href="#access_the_webui" title="Permanent link">&para;</a></h2>
 <p>But what's going on? My http://my-host:9091 isn't responding?
 This is because the VPN is active, and since docker is running in a different ip range than your client the response
 to your request will be treated as "non-local" traffic and therefore be routed out through the VPN interface.</p>
@@ -499,7 +504,7 @@ For example, another container may pause or restrict transmission speeds while t
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../dockerenv/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../building-blocks/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -508,19 +513,19 @@ For example, another container may pause or restrict transmission speeds while t
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Use docker env file
+                Image Building Blocks
               </div>
             </div>
           </a>
         
         
-          <a href="../run-on-arm/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../run-container/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Running on ARM
+                Running the container
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

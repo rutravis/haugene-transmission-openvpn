@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="http://haugene.github.io/docker-transmission-openvpn/run-from-docker-registry/">
+        <link rel="canonical" href="http://haugene.github.io/docker-transmission-openvpn/web-proxy/">
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
@@ -16,7 +16,7 @@
     
     
       
-        <title>Run from Docker registry - docker-transmission-openvpn</title>
+        <title>Web Proxy - docker-transmission-openvpn</title>
       
     
     
@@ -58,6 +58,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#web_proxy_configuration_options" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -84,7 +89,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Run from Docker registry
+              Web Proxy
             
           </span>
         </div>
@@ -185,7 +190,7 @@
 
   <li class="md-nav__item">
     <a href=".." class="md-nav__link">
-      Home
+      Overview
     </a>
   </li>
 
@@ -194,18 +199,35 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
-      Run from Docker registry
+  <li class="md-nav__item">
+    <a href="../building-blocks/" class="md-nav__link">
+      Image Building Blocks
     </a>
+  </li>
+
     
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../vpn-networking/" class="md-nav__link">
+      VPN and Networking
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../run-container/" class="md-nav__link">
+      Running the container
+    </a>
   </li>
 
     
@@ -227,8 +249,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../arguments/" class="md-nav__link">
-      Arguments
+    <a href="../provider-specific/" class="md-nav__link">
+      Provider specific settings
     </a>
   </li>
 
@@ -239,8 +261,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../custom-scripts/" class="md-nav__link">
-      Custom pre/post scripts
+    <a href="../config-options/" class="md-nav__link">
+      Configuration options
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../faq/" class="md-nav__link">
+      Frequently asked questions
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../tips-tricks/" class="md-nav__link">
+      Tips & Tricks
     </a>
   </li>
 
@@ -261,71 +307,45 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="../dockerenv/" class="md-nav__link">
-      Use docker env file
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Web Proxy
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Web Proxy
     </a>
-  </li>
-
     
       
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
       
+        <li class="md-nav__item">
+  <a href="#web_proxy_configuration_options" class="md-nav__link">
+    Web proxy configuration options
+  </a>
+  
+</li>
       
-
-
-  <li class="md-nav__item">
-    <a href="../access/" class="md-nav__link">
-      Access
-    </a>
-  </li>
-
+    </ul>
+  
+</nav>
     
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../run-on-arm/" class="md-nav__link">
-      Running on ARM
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../nordvpn-script/" class="md-nav__link">
-      NORDVPN update script
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../systemd-integration/" class="md-nav__link">
-      Systemd integration
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../known-issues/" class="md-nav__link">
-      Known issues, tips and tricks
-    </a>
   </li>
 
     
@@ -336,49 +356,84 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#web_proxy_configuration_options" class="md-nav__link">
+    Web proxy configuration options
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/haugene/docker-transmission-openvpn/edit/master/docs/run-from-docker-registry.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/haugene/docker-transmission-openvpn/edit/master/docs/web-proxy.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>Run from Docker registry</h1>
+                  <h1>Web Proxy</h1>
                 
-                <p>The container is available from the Docker registry and this is the simplest way to get it.
-To run the container use this command:</p>
-<pre><code>$ docker run --cap-add=NET_ADMIN -d \
-              -v /your/storage/path/:/data \
-              -v /etc/localtime:/etc/localtime:ro \
-              -e CREATE_TUN_DEVICE=true \
-              -e OPENVPN_PROVIDER=PIA \
-              -e OPENVPN_CONFIG=CA\ Toronto \
-              -e OPENVPN_USERNAME=user \
-              -e OPENVPN_PASSWORD=pass \
-              -e WEBPROXY_ENABLED=false \
-              -e LOCAL_NETWORK=192.168.0.0/16 \
-              --log-driver json-file \
-              --log-opt max-size=10m \
-              -p 9091:9091 \
-              haugene/transmission-openvpn
-</code></pre>
-<p>You must set the environment variables <code>OPENVPN_PROVIDER</code>, <code>OPENVPN_USERNAME</code> and <code>OPENVPN_PASSWORD</code> to provide basic connection details.</p>
-<p>The <code>OPENVPN_CONFIG</code> is an optional variable. If no config is given, a default config will be selected for the provider you have chosen.
-Find available OpenVPN configurations by looking in the openvpn folder of the GitHub repository. The value that you should use here is the filename of your chosen openvpn configuration <em>without</em> the .ovpn file extension. For example:</p>
-<pre><code>-e &quot;OPENVPN_CONFIG=ipvanish-AT-Vienna-vie-c02&quot;
-</code></pre>
-<p>You can also provide a comma separated list of openvpn configuration filenames.
-If you provide a list, a file will be randomly chosen in the list, this is useful for redundancy setups. For example:</p>
-<pre><code>-e &quot;OPENVPN_CONFIG=ipvanish-AT-Vienna-vie-c02,ipvanish-FR-Paris-par-a01,ipvanish-DE-Frankfurt-fra-a01&quot;
-</code></pre>
-<p>If you provide a list and the selected server goes down, after the value of ping-timeout the container will be restarted and a server will be randomly chosen, note that the faulty server can be chosen again, if this should occur, the container will be restarted again until a working server is selected.</p>
-<p>To make sure this work in all cases, you should add <code>--pull-filter ignore ping</code> to your OPENVPN_OPTS variable.</p>
-<p>As you can see, the container also expects a data volume to be mounted.
-This is where Transmission will store your downloads, incomplete downloads and look for a watch directory for new .torrent files.
-By default a folder named transmission-home will also be created under /data, this is where Transmission stores its state.</p>
+                <h3 id="web_proxy_configuration_options">Web proxy configuration options<a class="headerlink" href="#web_proxy_configuration_options" title="Permanent link">&para;</a></h3>
+<p>This container also contains a web-proxy server to allow you to tunnel your web-browser traffic through the same OpenVPN tunnel.
+This is useful if you are using a private tracker that needs to see you login from the same IP address you are torrenting from.
+The default listening port is 8888. Note that only ports above 1024 can be specified as all ports below 1024 are privileged
+and would otherwise require root permissions to run.
+Remember to add a port binding for your selected (or default) port when starting the container.
+If you set Username and Password it will enable BasicAuth for the proxy</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Function</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>WEBPROXY_ENABLED</code></td>
+<td>Enables the web proxy</td>
+<td><code>WEBPROXY_ENABLED=true</code></td>
+</tr>
+<tr>
+<td><code>WEBPROXY_PORT</code></td>
+<td>Sets the listening port</td>
+<td><code>WEBPROXY_PORT=8888</code></td>
+</tr>
+<tr>
+<td><code>WEBPROXY_USERNAME</code></td>
+<td>Sets the BasicAuth username</td>
+<td><code>WEBPROXY_USERNAME=test</code></td>
+</tr>
+<tr>
+<td><code>WEBPROXY_PASSWORD</code></td>
+<td>Sets the BasicAuth password</td>
+<td><code>WEBPROXY_PASSWORD=password</code></td>
+</tr>
+</tbody>
+</table>
                 
               
               
@@ -397,7 +452,7 @@ By default a folder named transmission-home will also be created under /data, th
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href=".." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../rss-plugin/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -406,25 +461,11 @@ By default a folder named transmission-home will also be created under /data, th
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Home
+                RSS plugin
               </div>
             </div>
           </a>
         
-        
-          <a href="../supported-providers/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Supported providers
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
         
       </nav>
     </div>

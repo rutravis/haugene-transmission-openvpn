@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="http://haugene.github.io/docker-transmission-openvpn/arguments/">
+        <link rel="canonical" href="http://haugene.github.io/docker-transmission-openvpn/config-options/">
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
@@ -16,7 +16,7 @@
     
     
       
-        <title>Arguments - docker-transmission-openvpn</title>
+        <title>Configuration options - docker-transmission-openvpn</title>
       
     
     
@@ -89,7 +89,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Arguments
+              Configuration options
             
           </span>
         </div>
@@ -190,7 +190,7 @@
 
   <li class="md-nav__item">
     <a href=".." class="md-nav__link">
-      Home
+      Overview
     </a>
   </li>
 
@@ -201,8 +201,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../run-from-docker-registry/" class="md-nav__link">
-      Run from Docker registry
+    <a href="../building-blocks/" class="md-nav__link">
+      Image Building Blocks
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../vpn-networking/" class="md-nav__link">
+      VPN and Networking
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../run-container/" class="md-nav__link">
+      Running the container
     </a>
   </li>
 
@@ -223,6 +247,18 @@
       
       
 
+
+  <li class="md-nav__item">
+    <a href="../provider-specific/" class="md-nav__link">
+      Provider specific settings
+    </a>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
@@ -232,12 +268,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Arguments
+        Configuration options
         <span class="md-nav__icon md-icon"></span>
       </label>
     
     <a href="./" class="md-nav__link md-nav__link--active">
-      Arguments
+      Configuration options
     </a>
     
       
@@ -308,13 +344,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#web_proxy_configuration_options" class="md-nav__link">
-    Web proxy configuration options
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#user_configuration_options" class="md-nav__link">
     User configuration options
   </a>
@@ -335,6 +364,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#custom_scripts" class="md-nav__link">
+    Custom scripts
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -348,8 +384,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../custom-scripts/" class="md-nav__link">
-      Custom pre/post scripts
+    <a href="../faq/" class="md-nav__link">
+      Frequently asked questions
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../tips-tricks/" class="md-nav__link">
+      Tips & Tricks
     </a>
   </li>
 
@@ -372,68 +420,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../dockerenv/" class="md-nav__link">
-      Use docker env file
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../access/" class="md-nav__link">
-      Access
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../run-on-arm/" class="md-nav__link">
-      Running on ARM
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../nordvpn-script/" class="md-nav__link">
-      NORDVPN update script
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../systemd-integration/" class="md-nav__link">
-      Systemd integration
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../known-issues/" class="md-nav__link">
-      Known issues, tips and tricks
+    <a href="../web-proxy/" class="md-nav__link">
+      Web Proxy
     </a>
   </li>
 
@@ -516,13 +504,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#web_proxy_configuration_options" class="md-nav__link">
-    Web proxy configuration options
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#user_configuration_options" class="md-nav__link">
     User configuration options
   </a>
@@ -543,6 +524,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#custom_scripts" class="md-nav__link">
+    Custom scripts
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -555,12 +543,12 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/haugene/docker-transmission-openvpn/edit/master/docs/arguments.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/haugene/docker-transmission-openvpn/edit/master/docs/config-options.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>Arguments</h1>
+                  <h1>Configuration options</h1>
                 
                 <h3 id="required_environment_options">Required environment options<a class="headerlink" href="#required_environment_options" title="Permanent link">&para;</a></h3>
 <table>
@@ -767,44 +755,6 @@ and follow the format given in these examples:</p>
 <p>Transmission options changed in the WebUI or in settings.json will be overridden at startup and will not survive after a reboot of the container. You may want to use these variables in order to keep your preferences.</p>
 <p>PS: <code>TRANSMISSION_BIND_ADDRESS_IPV4</code> will be overridden to the IP assigned to your OpenVPN tunnel interface.
 This is to prevent leaking the host IP.</p>
-<h3 id="web_proxy_configuration_options">Web proxy configuration options<a class="headerlink" href="#web_proxy_configuration_options" title="Permanent link">&para;</a></h3>
-<p>This container also contains a web-proxy server to allow you to tunnel your web-browser traffic through the same OpenVPN tunnel.
-This is useful if you are using a private tracker that needs to see you login from the same IP address you are torrenting from.
-The default listening port is 8888. Note that only ports above 1024 can be specified as all ports below 1024 are privileged
-and would otherwise require root permissions to run.
-Remember to add a port binding for your selected (or default) port when starting the container.
-If you set Username and Password it will enable BasicAuth for the proxy</p>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Function</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>WEBPROXY_ENABLED</code></td>
-<td>Enables the web proxy</td>
-<td><code>WEBPROXY_ENABLED=true</code></td>
-</tr>
-<tr>
-<td><code>WEBPROXY_PORT</code></td>
-<td>Sets the listening port</td>
-<td><code>WEBPROXY_PORT=8888</code></td>
-</tr>
-<tr>
-<td><code>WEBPROXY_USERNAME</code></td>
-<td>Sets the BasicAuth username</td>
-<td><code>WEBPROXY_USERNAME=test</code></td>
-</tr>
-<tr>
-<td><code>WEBPROXY_PASSWORD</code></td>
-<td>Sets the BasicAuth password</td>
-<td><code>WEBPROXY_PASSWORD=password</code></td>
-</tr>
-</tbody>
-</table>
 <h3 id="user_configuration_options">User configuration options<a class="headerlink" href="#user_configuration_options" title="Permanent link">&para;</a></h3>
 <p>By default everything will run as the root user. However, it is possible to change who runs the transmission process.
 You may set the following parameters to customize the user id that runs transmission.</p>
@@ -838,6 +788,42 @@ This might lead to the default route (your untunneled connection) to be used.</p
 <p>By default Transmission will log to a file in <code>TRANSMISSION_HOME/transmission.log</code>. </p>
 <p>To log to stdout instead set the environment variable <code>LOG_TO_STDOUT</code> to <code>true</code>.</p>
 <p><em>Note</em>: By default stdout is what container engines read logs from. Set this to true to have Tranmission logs in commands like <code>docker logs</code> and <code>kubectl logs</code>. OpenVPN currently only logs to stdout.</p>
+<h3 id="custom_scripts">Custom scripts<a class="headerlink" href="#custom_scripts" title="Permanent link">&para;</a></h3>
+<p>If you ever need to run custom code before or after transmission is executed or stopped, you can use the custom scripts feature.
+Custom scripts are located in the /scripts directory which is empty by default.
+To enable this feature, you'll need to mount the /scripts directory.</p>
+<p>Once /scripts is mounted you'll need to write your custom code in the following bash shell scripts:</p>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/scripts/openvpn-pre-start.sh</td>
+<td>This shell script will be executed before openvpn start</td>
+</tr>
+<tr>
+<td>/scripts/transmission-pre-start.sh</td>
+<td>This shell script will be executed before transmission start</td>
+</tr>
+<tr>
+<td>/scripts/transmission-post-start.sh</td>
+<td>This shell script will be executed after transmission start</td>
+</tr>
+<tr>
+<td>/scripts/transmission-pre-stop.sh</td>
+<td>This shell script will be executed before transmission stop</td>
+</tr>
+<tr>
+<td>/scripts/transmission-post-stop.sh</td>
+<td>This shell script will be executed after transmission stop</td>
+</tr>
+</tbody>
+</table>
+<p>Don't forget to include the #!/bin/bash shebang and to make the scripts executable using chmod a+x</p>
                 
               
               
@@ -856,7 +842,7 @@ This might lead to the default route (your untunneled connection) to be used.</p
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../supported-providers/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../provider-specific/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -865,19 +851,19 @@ This might lead to the default route (your untunneled connection) to be used.</p
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Supported providers
+                Provider specific settings
               </div>
             </div>
           </a>
         
         
-          <a href="../custom-scripts/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../faq/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Custom pre/post scripts
+                Frequently asked questions
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

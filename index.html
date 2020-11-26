@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#quick_start" class="md-skip">
+        <a href="#overview" class="md-skip">
           Skip to content
         </a>
       
@@ -89,7 +89,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Home
+              Overview
             
           </span>
         </div>
@@ -196,12 +196,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Home
+        Overview
         <span class="md-nav__icon md-icon"></span>
       </label>
     
     <a href="." class="md-nav__link md-nav__link--active">
-      Home
+      Overview
     </a>
     
       
@@ -216,15 +216,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#quick_start" class="md-nav__link">
-    Quick Start
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#please_help_out_aboutmaintenance" class="md-nav__link">
-    Please help out (about:maintenance)
+  <a href="#good_places_to_start" class="md-nav__link">
+    Good places to start
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional_features" class="md-nav__link">
+    Additional features
   </a>
   
 </li>
@@ -242,8 +256,32 @@
 
 
   <li class="md-nav__item">
-    <a href="run-from-docker-registry/" class="md-nav__link">
-      Run from Docker registry
+    <a href="building-blocks/" class="md-nav__link">
+      Image Building Blocks
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="vpn-networking/" class="md-nav__link">
+      VPN and Networking
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="run-container/" class="md-nav__link">
+      Running the container
     </a>
   </li>
 
@@ -266,8 +304,8 @@
 
 
   <li class="md-nav__item">
-    <a href="arguments/" class="md-nav__link">
-      Arguments
+    <a href="provider-specific/" class="md-nav__link">
+      Provider specific settings
     </a>
   </li>
 
@@ -278,8 +316,32 @@
 
 
   <li class="md-nav__item">
-    <a href="custom-scripts/" class="md-nav__link">
-      Custom pre/post scripts
+    <a href="config-options/" class="md-nav__link">
+      Configuration options
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="faq/" class="md-nav__link">
+      Frequently asked questions
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="tips-tricks/" class="md-nav__link">
+      Tips & Tricks
     </a>
   </li>
 
@@ -302,68 +364,8 @@
 
 
   <li class="md-nav__item">
-    <a href="dockerenv/" class="md-nav__link">
-      Use docker env file
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="access/" class="md-nav__link">
-      Access
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="run-on-arm/" class="md-nav__link">
-      Running on ARM
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="nordvpn-script/" class="md-nav__link">
-      NORDVPN update script
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="systemd-integration/" class="md-nav__link">
-      Systemd integration
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="known-issues/" class="md-nav__link">
-      Known issues, tips and tricks
+    <a href="web-proxy/" class="md-nav__link">
+      Web Proxy
     </a>
   </li>
 
@@ -390,15 +392,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#quick_start" class="md-nav__link">
-    Quick Start
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#please_help_out_aboutmaintenance" class="md-nav__link">
-    Please help out (about:maintenance)
+  <a href="#good_places_to_start" class="md-nav__link">
+    Good places to start
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional_features" class="md-nav__link">
+    Additional features
   </a>
   
 </li>
@@ -437,42 +453,45 @@
   <a href="https://gitter.im/docker-transmission-openvpn/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge">
     <img alt="Join the chat at https://gitter.im/docker-transmission-openvpn/Lobby" src="https://badges.gitter.im/docker-transmission-openvpn/Lobby.svg" />
   </a>
+  <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=73XHRSK65KQYC">
+    <img alt="Donate with PayPal" src="https://img.shields.io/badge/Donate-PayPal-green.svg">
+  </a>
+  <a href="https://www.patreon.com/haugene">
+    <img alt="Donate with Patreon" src="https://github.com/haugene/docker-transmission-openvpn/raw/master/images/patreon.png">
+  </a>
 </p>
 
-<h2 id="quick_start">Quick Start<a class="headerlink" href="#quick_start" title="Permanent link">&para;</a></h2>
-<p>This container contains OpenVPN and Transmission with a configuration where Transmission is running only when OpenVPN has an active tunnel. It bundles configuration files for many popular VPN providers to make the setup easier.</p>
-<p>You need to specify your provider and credentials with environment variables, as well as mounting volumes where the data should be stored. An example run command to get you going is provided below.</p>
-<p>It also bundles an installation of Tinyproxy to also be able to proxy web traffic over your VPN, as well as scripts for opening a port for Transmission if you are using PIA or Perfect Privacy providers.</p>
-<pre><code>$ docker run --cap-add=NET_ADMIN -d \
-              -v /your/storage/path/:/data \
-              -v /etc/localtime:/etc/localtime:ro \
-              -e CREATE_TUN_DEVICE=true \
-              -e OPENVPN_PROVIDER=PIA \
-              -e OPENVPN_CONFIG=CA\ Toronto \
-              -e OPENVPN_USERNAME=user \
-              -e OPENVPN_PASSWORD=pass \
-              -e WEBPROXY_ENABLED=false \
-              -e LOCAL_NETWORK=192.168.0.0/16 \
-              --log-driver json-file \
-              --log-opt max-size=10m \
-              -p 9091:9091 \
-              haugene/transmission-openvpn
-</code></pre>
-<h2 id="please_help_out_aboutmaintenance">Please help out (about:maintenance)<a class="headerlink" href="#please_help_out_aboutmaintenance" title="Permanent link">&para;</a></h2>
-<p>This image was created for my own use, but sharing is caring, so it had to be open source.
-It has now gotten quite popular, and that's great! But keeping it up to date, providing support, fixes
-and new features takes a lot of time.</p>
-<p>I'm therefore kindly asking you to donate if you feel like you're getting a good tool
-and you're able to spare some dollars to keep it functioning as it should. There's a couple of ways to do it:</p>
-<p>Become a patron, supporting the project with a small monthly amount.</p>
-<p><a href="https://www.patreon.com/haugene"><img alt="Donate with Patreon" src="https://github.com/haugene/docker-transmission-openvpn/raw/master/images/patreon.png" /></a></p>
-<p>Make a one time donation through PayPal.</p>
-<p><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=73XHRSK65KQYC"><img alt="Donate with PayPal" src="https://img.shields.io/badge/Donate-PayPal-green.svg" /></a></p>
-<p>Or use this referral code to DigitalOcean and get 25$ in credits, if you're interested in a cloud setup.</p>
-<p><a href="https://m.do.co/c/ca994f1552bc"><img alt="Credits on DigitalOcean" src="https://raw.githubusercontent.com/haugene/docker-transmission-openvpn/master/images/digitalocean.png" /></a></p>
-<p>You can also help out by submitting pull-requests or helping others with
-open issues or in the gitter chat. A big thanks to everyone who has contributed so far!
-And if you could be interested in joining as collaborator, let me know.</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>You have found the documentation. That usually means that you either:</p>
+<ol>
+<li>Want to read a bit about how the image is built and how it works</li>
+<li>Want to get started, and are looking for a setup guide</li>
+<li>Already have a setup, but something is broken</li>
+</ol>
+<p>We'll try to address them here but no matter which one of them it is, knowing
+more about this image makes it easier to understand how it should be and what
+could be wrong. So starting with number 1 is never a bad idea.</p>
+<p><strong>NB:</strong> These pages are under re-construction. Follow the issue <a href="https://github.com/haugene/docker-transmission-openvpn/issues/1558">here</a> and feel free to comment or help out :) Also we just released version 3.0, so if you have some breakage - <a href="v3/">please read here</a>.</p>
+<h2 id="good_places_to_start">Good places to start<a class="headerlink" href="#good_places_to_start" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="building-blocks/">The basic building blocks</a></li>
+<li><a href="run-container/">Running the container</a></li>
+<li><a href="vpn-networking/">VPN and networking in containers</a></li>
+<li><a href="supported-providers/">Supported providers and server locations</a></li>
+<li><a href="provider-specific/">Provider specific features/instructions</a></li>
+<li><a href="config-options/">Configuration options list</a></li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="faq/">Frequently asked questions</a></li>
+<li>Debugging your setup (coming)</li>
+<li><a href="tips-tricks/">Tips &amp; Tricks</a></li>
+</ul>
+<h2 id="additional_features">Additional features<a class="headerlink" href="#additional_features" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="web-proxy/">Web proxy: Tinyproxy</a></li>
+<li><a href="rss-plugin/">RSS Plugin support</a></li>
+</ul>
                 
               
               
@@ -492,13 +511,13 @@ And if you could be interested in joining as collaborator, let me know.</p>
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
         
-          <a href="run-from-docker-registry/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="building-blocks/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Run from Docker registry
+                Image Building Blocks
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

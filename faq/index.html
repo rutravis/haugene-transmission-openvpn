@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="http://haugene.github.io/docker-transmission-openvpn/nordvpn-script/">
+        <link rel="canonical" href="http://haugene.github.io/docker-transmission-openvpn/faq/">
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
@@ -16,7 +16,7 @@
     
     
       
-        <title>NORDVPN update script - docker-transmission-openvpn</title>
+        <title>Frequently asked questions - docker-transmission-openvpn</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#nordvpn_api" class="md-skip">
+        <a href="#the_container_runs_but_i_cant_access_the_web_ui" class="md-skip">
           Skip to content
         </a>
       
@@ -89,7 +89,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              NORDVPN update script
+              Frequently asked questions
             
           </span>
         </div>
@@ -190,7 +190,7 @@
 
   <li class="md-nav__item">
     <a href=".." class="md-nav__link">
-      Home
+      Overview
     </a>
   </li>
 
@@ -201,8 +201,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../run-from-docker-registry/" class="md-nav__link">
-      Run from Docker registry
+    <a href="../building-blocks/" class="md-nav__link">
+      Image Building Blocks
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../vpn-networking/" class="md-nav__link">
+      VPN and Networking
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../run-container/" class="md-nav__link">
+      Running the container
     </a>
   </li>
 
@@ -225,8 +249,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../arguments/" class="md-nav__link">
-      Arguments
+    <a href="../provider-specific/" class="md-nav__link">
+      Provider specific settings
     </a>
   </li>
 
@@ -237,8 +261,87 @@
 
 
   <li class="md-nav__item">
-    <a href="../custom-scripts/" class="md-nav__link">
-      Custom pre/post scripts
+    <a href="../config-options/" class="md-nav__link">
+      Configuration options
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Frequently asked questions
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Frequently asked questions
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the_container_runs_but_i_cant_access_the_web_ui" class="md-nav__link">
+    The container runs, but I can't access the web ui
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rtnetlink_answers_file_exists" class="md-nav__link">
+    RTNETLINK answers: File exists
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tunsetiff_tun_operation_not_permitted" class="md-nav__link">
+    TUNSETIFF tun: Operation not permitted
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auth_received_control_message_auth_failed" class="md-nav__link">
+    AUTH: Received control message: AUTH_FAILED
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../tips-tricks/" class="md-nav__link">
+      Tips & Tricks
     </a>
   </li>
 
@@ -261,102 +364,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../dockerenv/" class="md-nav__link">
-      Use docker env file
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../access/" class="md-nav__link">
-      Access
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../run-on-arm/" class="md-nav__link">
-      Running on ARM
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        NORDVPN update script
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
-      NORDVPN update script
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#nordvpn_api" class="md-nav__link">
-    NORDVPN API
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../systemd-integration/" class="md-nav__link">
-      Systemd integration
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../known-issues/" class="md-nav__link">
-      Known issues, tips and tricks
+    <a href="../web-proxy/" class="md-nav__link">
+      Web Proxy
     </a>
   </li>
 
@@ -383,8 +392,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#nordvpn_api" class="md-nav__link">
-    NORDVPN API
+  <a href="#the_container_runs_but_i_cant_access_the_web_ui" class="md-nav__link">
+    The container runs, but I can't access the web ui
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rtnetlink_answers_file_exists" class="md-nav__link">
+    RTNETLINK answers: File exists
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tunsetiff_tun_operation_not_permitted" class="md-nav__link">
+    TUNSETIFF tun: Operation not permitted
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auth_received_control_message_auth_failed" class="md-nav__link">
+    AUTH: Received control message: AUTH_FAILED
   </a>
   
 </li>
@@ -401,53 +431,31 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/haugene/docker-transmission-openvpn/edit/master/docs/nordvpn-script.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/haugene/docker-transmission-openvpn/edit/master/docs/faq.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>NORDVPN update script</h1>
+                  <h1>Frequently asked questions</h1>
                 
-                <h2 id="nordvpn_api">NORDVPN API<a class="headerlink" href="#nordvpn_api" title="Permanent link">&para;</a></h2>
-<p>The update script is based on the NordVPN API. The API sends back the best recommended OpenVPN configuration file based on the filters given.</p>
-<p>Available ENV variables in the container to define via the NordVPN API the file to use are:</p>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Function</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>NORDVPN_COUNTRY</code></td>
-<td>Two character country code. See <a href="https://api.nordvpn.com/v1/servers/countries">/servers/countries</a> for full list.</td>
-<td><code>NORDVPN_COUNTRY=US</code></td>
-</tr>
-<tr>
-<td><code>NORDVPN_CATEGORY</code></td>
-<td>Server type (P2P, Standard, etc). See <a href="https://api.nordvpn.com/v1/servers/groups">/servers/groups</a> for full list. Use either <code>title</code> or <code>identifier</code> from the list.</td>
-<td><code>NORDVPN_CATEGORY=legacy_p2p</code></td>
-</tr>
-<tr>
-<td><code>NORDVPN_PROTOCOL</code></td>
-<td>Either <code>tcp</code> or <code>udp</code>. (values identifier more available at https://api.nordvpn.com/v1/technologies, may need script adaptation)</td>
-<td><code>NORDVPN_PROTOCOL=tcp</code></td>
-</tr>
-</tbody>
-</table>
-<p>The file is then downloaded using the API to find the best server according to the variables, here an albanian, using tcp:</p>
-<ul>
-<li>selecting server (limit answer to 1): [ANSWER]= https://api.nordvpn.com/v1/servers/recommendations?filters[country_id]=2&amp;filters[servers_technologies][identifier]=openvpn_tcp&amp;filters[servers_group][identifier]=legacy_group_category&amp;limit=1</li>
-<li>download selected server's config: https://downloads.nordcdn.com/configs/files/ovpn_[NORDVPN_PROTOCOL]/servers/[ANSWER.0.HOSTNAME][] =&gt; https://downloads.nordcdn.com/configs/files/ovpn_tcp/servers/al9.nordvpn.com.tcp.ovpn</li>
+                <ul>
+<li><a href="#the_container_runs_but_i_cant_access_the_web_ui">The container runs, but I can't access the web ui</a></li>
+<li><a href="#rtnetlink_answers_file_exists">RTNETLINK answers: File exists</a></li>
+<li><a href="#tunsetiff_tun_operation_not_permitted">TUNSETIFF tun: Operation not permitted</a></li>
+<li><a href="#auth_received_control_message_auth_failed">AUTH: Received control message: AUTH_FAILED</a></li>
 </ul>
-<p>A possible evolution would be to check server's load to select the most available one.</p>
-<ul>
-<li>limit numbers of returned server to 10</li>
-<li>use https://api.nordvpn.com/server/stats to collect cpu's load</li>
-<li>select the more available server.</li>
-</ul>
+<h2 id="the_container_runs_but_i_cant_access_the_web_ui">The container runs, but I can't access the web ui<a class="headerlink" href="#the_container_runs_but_i_cant_access_the_web_ui" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/haugene/docker-transmission-openvpn/issues/1558">TODO</a>: Short explanation and link to <a href="../vpn-networking/">networking</a></p>
+<h2 id="rtnetlink_answers_file_exists">RTNETLINK answers: File exists<a class="headerlink" href="#rtnetlink_answers_file_exists" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/haugene/docker-transmission-openvpn/issues/1558">TODO</a>: Conflicting LOCAL_NETWORK values. Short explanation and link to <a href="../vpn-networking/">networking</a></p>
+<h2 id="tunsetiff_tun_operation_not_permitted">TUNSETIFF tun: Operation not permitted<a class="headerlink" href="#tunsetiff_tun_operation_not_permitted" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/haugene/docker-transmission-openvpn/issues/1558">TODO</a>: Permissions issue. Is NET_ADMIN given? Does it work with --privileged? Some platforms has it harder than others.</p>
+<h2 id="auth_received_control_message_auth_failed">AUTH: Received control message: AUTH_FAILED<a class="headerlink" href="#auth_received_control_message_auth_failed" title="Permanent link">&para;</a></h2>
+<p>If your logs end like this, the wrong username/password was sent to your VPN provider:</p>
+<pre><code>AUTH: Received control message: AUTH_FAILED
+SIGTERM[soft,auth-failure] received, process exiting
+</code></pre>
+<p><a href="https://github.com/haugene/docker-transmission-openvpn/issues/1558">TODO</a>: Special chars in password? Separate credentials for OpenVPN? Check file content of /config/openvpn-credentials.txt and contact provider</p>
                 
               
               
@@ -466,7 +474,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../run-on-arm/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../config-options/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -475,19 +483,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Running on ARM
+                Configuration options
               </div>
             </div>
           </a>
         
         
-          <a href="../systemd-integration/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../tips-tricks/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Systemd integration
+                Tips & Tricks
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
