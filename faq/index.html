@@ -307,6 +307,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how_do_i_verify_that_my_traffic_is_using_vpn" class="md-nav__link">
+    How do I verify that my traffic is using VPN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rtnetlink_answers_file_exists" class="md-nav__link">
     RTNETLINK answers: File exists
   </a>
@@ -317,6 +324,33 @@
   <a href="#tunsetiff_tun_operation_not_permitted" class="md-nav__link">
     TUNSETIFF tun: Operation not permitted
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#container_loses_connection_after_some_time" class="md-nav__link">
+    Container loses connection after some time
+  </a>
+  
+    <nav class="md-nav" aria-label="Container loses connection after some time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set_the_ping-exit_option_for_openvpn_and_restart-flag_in_docker" class="md-nav__link">
+    Set the ping-exit option for OpenVPN and restart-flag in Docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_a_third_party_tool_to_monitor_and_restart_the_container" class="md-nav__link">
+    Use a third party tool to monitor and restart the container
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -399,6 +433,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how_do_i_verify_that_my_traffic_is_using_vpn" class="md-nav__link">
+    How do I verify that my traffic is using VPN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rtnetlink_answers_file_exists" class="md-nav__link">
     RTNETLINK answers: File exists
   </a>
@@ -409,6 +450,33 @@
   <a href="#tunsetiff_tun_operation_not_permitted" class="md-nav__link">
     TUNSETIFF tun: Operation not permitted
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#container_loses_connection_after_some_time" class="md-nav__link">
+    Container loses connection after some time
+  </a>
+  
+    <nav class="md-nav" aria-label="Container loses connection after some time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set_the_ping-exit_option_for_openvpn_and_restart-flag_in_docker" class="md-nav__link">
+    Set the ping-exit option for OpenVPN and restart-flag in Docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_a_third_party_tool_to_monitor_and_restart_the_container" class="md-nav__link">
+    Use a third party tool to monitor and restart the container
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -440,22 +508,64 @@
                 
                 <ul>
 <li><a href="#the_container_runs_but_i_cant_access_the_web_ui">The container runs, but I can't access the web ui</a></li>
+<li><a href="#how_do_i_verify_that_my_traffic_is_using_vpn">How do I verify that my traffic is using VPN</a></li>
 <li><a href="#rtnetlink_answers_file_exists">RTNETLINK answers: File exists</a></li>
 <li><a href="#tunsetiff_tun_operation_not_permitted">TUNSETIFF tun: Operation not permitted</a></li>
 <li><a href="#auth_received_control_message_auth_failed">AUTH: Received control message: AUTH_FAILED</a></li>
+<li><a href="#container_loses_connection_after_some_time">Container loses connection after some time</a></li>
 </ul>
 <h2 id="the_container_runs_but_i_cant_access_the_web_ui">The container runs, but I can't access the web ui<a class="headerlink" href="#the_container_runs_but_i_cant_access_the_web_ui" title="Permanent link">&para;</a></h2>
 <p><a href="https://github.com/haugene/docker-transmission-openvpn/issues/1558">TODO</a>: Short explanation and link to <a href="../vpn-networking/">networking</a></p>
+<h2 id="how_do_i_verify_that_my_traffic_is_using_vpn">How do I verify that my traffic is using VPN<a class="headerlink" href="#how_do_i_verify_that_my_traffic_is_using_vpn" title="Permanent link">&para;</a></h2>
+<p>There are many ways of doing this, and I welcome you to add to this list if you have any suggestsions.</p>
+<p>You can exec into the container and throug the shell use <code>curl</code> to ask for your public IP. There are
+multiple endpoints for this but here are a few suggestions:</p>
+<ul>
+<li><code>curl http://ipinfo.io/ip</code></li>
+<li><code>curl http://ipecho.net/plain</code></li>
+<li><code>curl icanhazip.com</code></li>
+</ul>
+<p>Or you could use a test torrent service to download a torrent file and then you can get the IP from that tracker.</p>
+<ul>
+<li>http://ipmagnet.services.cbcdn.com/</li>
+<li>https://torguard.net/checkmytorrentipaddress.php</li>
+</ul>
 <h2 id="rtnetlink_answers_file_exists">RTNETLINK answers: File exists<a class="headerlink" href="#rtnetlink_answers_file_exists" title="Permanent link">&para;</a></h2>
 <p><a href="https://github.com/haugene/docker-transmission-openvpn/issues/1558">TODO</a>: Conflicting LOCAL_NETWORK values. Short explanation and link to <a href="../vpn-networking/">networking</a></p>
 <h2 id="tunsetiff_tun_operation_not_permitted">TUNSETIFF tun: Operation not permitted<a class="headerlink" href="#tunsetiff_tun_operation_not_permitted" title="Permanent link">&para;</a></h2>
-<p><a href="https://github.com/haugene/docker-transmission-openvpn/issues/1558">TODO</a>: Permissions issue. Is NET_ADMIN given? Does it work with --privileged? Some platforms has it harder than others.</p>
+<p>This is usually a question of permissions. Have you set the <a href="https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities">NET_ADMIN capabilities</a> to the container? What if you use <code>docker run --privileged</code>, do you still get that error?</p>
+<p>This is an error where we haven't got too much information. If the hints above get you nowhere, create an issue.</p>
+<h2 id="container_loses_connection_after_some_time">Container loses connection after some time<a class="headerlink" href="#container_loses_connection_after_some_time" title="Permanent link">&para;</a></h2>
+<p>For some users, on some platforms, apparently this is an issue. I have not encountered this myself - but there is no doubt that it's recurring.
+Why does the container lose connectivity? That we don't know and it could be many different reasons that manifest the same symptoms.
+We do however have some possible solutions.</p>
+<h3 id="set_the_ping-exit_option_for_openvpn_and_restart-flag_in_docker">Set the ping-exit option for OpenVPN and restart-flag in Docker<a class="headerlink" href="#set_the_ping-exit_option_for_openvpn_and_restart-flag_in_docker" title="Permanent link">&para;</a></h3>
+<p>Most provider configs have a ping-restart option set. So if the tunnel fails, OpenVPN will restart and re-connect. That works well on regular systems.
+The problem is that if the container has lost internet connection restarting OpenVPN will not fix anything. What you can do though is to set/override
+this option using <code>OPENVPN_OPTS=--inactive 3600 --ping 10 --ping-exit 60</code>. This will tell OpenVPN to exit when it cannot ping the server for 1 minute.</p>
+<p>When OpenVPN exits, the container will exit. And if you've then set <code>restart=always</code> or <code>restart=unless-stopped</code> in your Docker config then Docker will
+restart the container and that could/should restore connectivity. VPN providers sometime push options to their clients after they connect. This is visible
+in the logs if they do. If they push ping-restart that can override your settings. So you could consider adding <code>--pull-filter ignore ping</code> to the options above.</p>
+<p>This approach will probably work, especially if you're seeing logs like these from before:</p>
+<pre><code>Inactivity timeout (--ping-restart), restarting
+SIGUSR1[soft,ping-restart] received, process restarting
+</code></pre>
+<h3 id="use_a_third_party_tool_to_monitor_and_restart_the_container">Use a third party tool to monitor and restart the container<a class="headerlink" href="#use_a_third_party_tool_to_monitor_and_restart_the_container" title="Permanent link">&para;</a></h3>
+<p>The container has a health check script that is run periodically. It will report the health status to Docker and the container will show as "unhealthy"
+if basic network connectivity is broken. You can write your own script and add it to cron, or you can use a tool like https://hub.docker.com/r/willfarrell/autoheal/ to look for and restart unhealthy containers.</p>
 <h2 id="auth_received_control_message_auth_failed">AUTH: Received control message: AUTH_FAILED<a class="headerlink" href="#auth_received_control_message_auth_failed" title="Permanent link">&para;</a></h2>
-<p>If your logs end like this, the wrong username/password was sent to your VPN provider:</p>
+<p>If your logs end like this, the wrong username/password was sent to your VPN provider.</p>
 <pre><code>AUTH: Received control message: AUTH_FAILED
 SIGTERM[soft,auth-failure] received, process exiting
 </code></pre>
-<p><a href="https://github.com/haugene/docker-transmission-openvpn/issues/1558">TODO</a>: Special chars in password? Separate credentials for OpenVPN? Check file content of /config/openvpn-credentials.txt and contact provider</p>
+<p>We can divide the possible errors here into three. You have entered the wrong credentials, the server has some kind of error or the container has messed
+up your credentials. We have had challenges with special characters. Having "?= as part of your password has tripped up our scripts from time to time.</p>
+<p>First check that your credentials are correct. Some providers have separate credentials for OpenVPN so it might not be the same as for their apps.
+Secondly, test a few different servers just to make sure that it's not just a faulty server. If this doesn't resolve it, it's probably the container.</p>
+<p>To verify this you can mount a volume to <code>/config</code> in the container. So for example <code>/temporary/folder:/config</code>. Your credentials will be written to
+<code>/config/openvpn-credentials.txt</code> when the container starts, more on that <a href="../building-blocks/#starting_openvpn">here</a>. So by mounting this folder
+you will be able to check the contents of that text file. The first line should be your username, the second should be your password.</p>
+<p>This file is what's passed to OpenVPN. If your username/password is correct here than you should probably contact your provider.</p>
                 
               
               
