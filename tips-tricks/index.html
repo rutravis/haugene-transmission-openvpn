@@ -481,12 +481,12 @@
                 <h4 id="use_google_dns_servers">Use Google DNS servers<a class="headerlink" href="#use_google_dns_servers" title="Permanent link">&para;</a></h4>
 <p>Some have encountered problems with DNS resolving inside the docker container.
 This causes trouble because OpenVPN will not be able to resolve the host to connect to.
-If you have this problem use dockers --dns flag to override the resolv.conf of the container.
-For example use googles dns servers by adding --dns 8.8.8.8 --dns 8.8.4.4 as parameters to the usual run command.</p>
+If you have this problem use Docker's --dns flag and try using Google's DNS servers by
+adding --dns 8.8.8.8 --dns 8.8.4.4 as parameters to the usual run command.</p>
 <h4 id="restart_container_if_connection_is_lost">Restart container if connection is lost<a class="headerlink" href="#restart_container_if_connection_is_lost" title="Permanent link">&para;</a></h4>
 <p>If the VPN connection fails or the container for any other reason loses connectivity, you want it to recover from it. One way of doing this is to set environment variable <code>OPENVPN_OPTS=--inactive 3600 --ping 10 --ping-exit 60</code> and use the --restart=always flag when starting the container. This way OpenVPN will exit if ping fails over a period of time which will stop the container and then the Docker deamon will restart it.</p>
 <h4 id="let_other_containers_use_vpn">Let other containers use VPN<a class="headerlink" href="#let_other_containers_use_vpn" title="Permanent link">&para;</a></h4>
-<p>Relevant issues...</p>
+<p><a href="https://github.com/haugene/docker-transmission-openvpn/issues/1558">TODO</a>: Relevant issues...</p>
 <h4 id="reach_sleep_or_hybernation_on_your_host_if_no_torrents_are_active">Reach sleep or hybernation on your host if no torrents are active<a class="headerlink" href="#reach_sleep_or_hybernation_on_your_host_if_no_torrents_are_active" title="Permanent link">&para;</a></h4>
 <p>By befault Transmission will always <a href="https://en.wikipedia.org/wiki/Tracker_scrape">scrape</a> trackers, even if all torrents have completed their activities, or they have been paused manually. This will cause Transmission to be always active, therefore never allow your host server to be inactive and go to sleep/hybernation/whatever. If this is something you want, you can add the following variable when creating the container. It will turn off a hidden setting in Tranmsission which will stop the application to scrape trackers for paused torrents. Transmission will become inactive, and your host will reach the desidered state.</p>
 <pre><code>-e &quot;TRANSMISSION_SCRAPE_PAUSED_TORRENTS_ENABLED=false&quot;

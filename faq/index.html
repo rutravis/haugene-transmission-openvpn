@@ -328,6 +328,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#error_resolving_host_address" class="md-nav__link">
+    Error resolving host address
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#container_loses_connection_after_some_time" class="md-nav__link">
     Container loses connection after some time
   </a>
@@ -466,6 +473,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#error_resolving_host_address" class="md-nav__link">
+    Error resolving host address
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#container_loses_connection_after_some_time" class="md-nav__link">
     Container loses connection after some time
   </a>
@@ -523,6 +537,7 @@
 <li><a href="#how_do_i_verify_that_my_traffic_is_using_vpn">How do I verify that my traffic is using VPN</a></li>
 <li><a href="#rtnetlink_answers_file_exists">RTNETLINK answers: File exists</a></li>
 <li><a href="#tunsetiff_tun_operation_not_permitted">TUNSETIFF tun: Operation not permitted</a></li>
+<li><a href="#error_resolving_host_address">Error resolving host address</a></li>
 <li><a href="#auth_received_control_message_auth_failed">AUTH: Received control message: AUTH_FAILED</a></li>
 <li><a href="#container_loses_connection_after_some_time">Container loses connection after some time</a></li>
 </ul>
@@ -547,6 +562,42 @@ multiple endpoints for this but here are a few suggestions:</p>
 <h2 id="tunsetiff_tun_operation_not_permitted">TUNSETIFF tun: Operation not permitted<a class="headerlink" href="#tunsetiff_tun_operation_not_permitted" title="Permanent link">&para;</a></h2>
 <p>This is usually a question of permissions. Have you set the <a href="https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities">NET_ADMIN capabilities</a> to the container? What if you use <code>docker run --privileged</code>, do you still get that error?</p>
 <p>This is an error where we haven't got too much information. If the hints above get you nowhere, create an issue.</p>
+<h2 id="error_resolving_host_address">Error resolving host address<a class="headerlink" href="#error_resolving_host_address" title="Permanent link">&para;</a></h2>
+<p>This error can happen multiple places in the scripts. The most common is that it happens with <code>curl</code> trying to download the latest .ovpn
+config bundle for those providers that has an update script, or that OpenVPN throws the error when trying to connect to the VPN server.</p>
+<p>The curl error looks something like <code>curl: (6) Could not resolve host: ...</code> and OpenVPN says <code>RESOLVE: Cannot resolve host address: ...</code>.
+Either way the problem is that your container does not have a valid DNS setup. We have two recommended ways of addressing this.</p>
+<p>The first solution is to use the <code>dns</code> option offered by Docker. This is available in
+<a href="https://docs.docker.com/engine/reference/run/#network-settings">Docker run</a> as well as
+<a href="https://docs.docker.com/compose/compose-file/#dns">Docker Compose</a>. You can add <code>--dns 8.8.8.8 --dns 8.8.4.4</code> to use Google DNS servers.
+Or add the corresponding block in docker-compose.yml:</p>
+<pre><code>  dns:
+    - 8.8.8.8
+    - 8.8.4.4
+</code></pre>
+<p>You can of course use any DNS servers you want here. Google servers are popular. So is Cloudflare DNS.</p>
+<p>The second approach is to use some environment variables to override <code>/etc/resolv.conf</code> in the container.
+Using the same DNS servers as in the previous approach you can set:</p>
+<pre><code>OVERRIDE_DNS_1=8.8.8.8
+OVERRIDE_DNS_2=8.8.4.4
+</code></pre>
+<p>This will be read by the startup script and it will override the contents of <code>/etc/resolv.conf</code> accordingly. You can have one
+or more of these servers and they will be sorted alphabetically.</p>
+<p><strong>What is the difference between these solutions?</strong></p>
+<p>A good question as they both seem to override what DNS servers the container should use. However they are not equal.</p>
+<p>The first solution uses the dns flags from Docker. This will mean that we instruct Docker to use these DNS servers for the container,
+but the resolv.conf file in the container will still point to the Docker DNS service. Docker might have many reasons for this but one of
+them is at least for service discovery. If you're running your container as a part of a larger docker-compose file or custom docker network
+and you want to be able to lookup the other containers based on their service names then you need to use the Docker DNS service.
+By using the <code>--dns</code> flags you should have both control of what DNS servers are used for external requests as well as container DNS lookup.</p>
+<p>The second solution is more direct. It rewrites the resolv.conf file so that it no longer refers to the Docker DNS service.
+The effects of this is that you lose Docker service discovery from the container (other containers in the same network can still resolve it)
+but you have cut out a middleman and potential point of error. I'm not sure why this some times is necessary but it has proven to fix
+the issue in some cases.</p>
+<p><strong>A possible third option</strong></p>
+<p>If you're facing the OpenVPN error (not curl) then your provider might have config files with IP addresses instead of DNS.
+That way your container won't need DNS to do a lookup for the server. Note that the trackers will still need DNS, so this will only
+solve the problem for you if it is your local network that in some way is blocking the DNS.</p>
 <h2 id="container_loses_connection_after_some_time">Container loses connection after some time<a class="headerlink" href="#container_loses_connection_after_some_time" title="Permanent link">&para;</a></h2>
 <p>For some users, on some platforms, apparently this is an issue. I have not encountered this myself - but there is no doubt that it's recurring.
 Why does the container lose connectivity? That we don't know and it could be many different reasons that manifest the same symptoms.
@@ -578,7 +629,7 @@ Secondly, test a few different servers just to make sure that it's not just a fa
 <p>To verify this you can mount a volume to <code>/config</code> in the container. So for example <code>/temporary/folder:/config</code>. Your credentials will be written to
 <code>/config/openvpn-credentials.txt</code> when the container starts, more on that <a href="../building-blocks/#starting_openvpn">here</a>. So by mounting this folder
 you will be able to check the contents of that text file. The first line should be your username, the second should be your password.</p>
-<p>This file is what's passed to OpenVPN. If your username/password is correct here than you should probably contact your provider.</p>
+<p>This file is what's passed to OpenVPN. If your username/password is correct here then you should probably contact your provider.</p>
                 
               
               
