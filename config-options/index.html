@@ -767,7 +767,7 @@
 </table>
 <h3 id="alternative_web_uis">Alternative web UIs<a class="headerlink" href="#alternative_web_uis" title="Permanent link">&para;</a></h3>
 <p>You can override the default web UI by setting the <code>TRANSMISSION_WEB_HOME</code> environment variable. If set, Transmission will look there for the Web Interface files, such as the javascript, html, and graphics files.</p>
-<p><a href="https://github.com/Secretmapper/combustion">Combustion UI</a>, <a href="https://github.com/endor/kettu">Kettu</a> and <a href="https://github.com/ronggang/transmission-web-control/">Transmission-Web-Control</a> come bundled with the container. You can enable either of them by setting<code>TRANSMISSION_WEB_UI=combustion</code>, <code>TRANSMISSION_WEB_UI=kettu</code> or <code>TRANSMISSION_WEB_UI=transmission-web-control</code>, respectively. Note that this will override the <code>TRANSMISSION_WEB_HOME</code> variable if set.</p>
+<p><a href="https://github.com/Secretmapper/combustion">Combustion UI</a>, <a href="https://github.com/endor/kettu">Kettu</a>, <a href="https://github.com/ronggang/transmission-web-control/">Transmission-Web-Control</a>, and <a href="https://github.comjesec/flood">Flood</a> come bundled with the container. You can enable either of them by setting<code>TRANSMISSION_WEB_UI=combustion</code>, <code>TRANSMISSION_WEB_UI=kettu</code> or <code>TRANSMISSION_WEB_UI=transmission-web-control</code>, respectively. Note that this will override the <code>TRANSMISSION_WEB_HOME</code> variable if set.</p>
 <table>
 <thead>
 <tr>
@@ -785,7 +785,7 @@
 <tr>
 <td><code>TRANSMISSION_WEB_UI</code></td>
 <td>Use the specified bundled web UI</td>
-<td><code>TRANSMISSION_WEB_UI=combustion</code>, <code>TRANSMISSION_WEB_UI=kettu</code> or <code>TRANSMISSION_WEB_UI=transmission-web-control</code></td>
+<td><code>TRANSMISSION_WEB_UI=combustion</code>, <code>TRANSMISSION_WEB_UI=kettu</code>, <code>TRANSMISSION_WEB_UI=transmission-web-control</code>, or <code>TRANSMISSION_WEB_UI=flood</code></td>
 </tr>
 </tbody>
 </table>
@@ -852,7 +852,7 @@ This might lead to the default route (your untunneled connection) to be used.</p
 <p>To drop the default route set the environment variable <code>DROP_DEFAULT_ROUTE</code> to <code>true</code>.</p>
 <p><em>Note</em>: This is not compatible with all VPNs. You can check your iptables routing with the <code>ip r</code> command in a running container.</p>
 <h3 id="changing_logging_locations">Changing logging locations<a class="headerlink" href="#changing_logging_locations" title="Permanent link">&para;</a></h3>
-<p>By default Transmission will log to a file in <code>TRANSMISSION_HOME/transmission.log</code>. </p>
+<p>By default Transmission will log to a file in <code>TRANSMISSION_HOME/transmission.log</code>.</p>
 <p>To log to stdout instead set the environment variable <code>LOG_TO_STDOUT</code> to <code>true</code>.</p>
 <p><em>Note</em>: By default stdout is what container engines read logs from. Set this to true to have Tranmission logs in commands like <code>docker logs</code> and <code>kubectl logs</code>. OpenVPN currently only logs to stdout.</p>
 <h3 id="custom_scripts">Custom scripts<a class="headerlink" href="#custom_scripts" title="Permanent link">&para;</a></h3>
