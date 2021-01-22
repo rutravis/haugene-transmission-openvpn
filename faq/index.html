@@ -359,6 +359,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rtnetlink_answers_invalid_argument" class="md-nav__link">
+    RTNETLINK answers: Invalid argument
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tunsetiff_tun_operation_not_permitted" class="md-nav__link">
     TUNSETIFF tun: Operation not permitted
   </a>
@@ -522,6 +529,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rtnetlink_answers_invalid_argument" class="md-nav__link">
+    RTNETLINK answers: Invalid argument
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tunsetiff_tun_operation_not_permitted" class="md-nav__link">
     TUNSETIFF tun: Operation not permitted
   </a>
@@ -615,6 +629,23 @@ multiple endpoints for this but here are a few suggestions:</p>
 </ul>
 <h2 id="rtnetlink_answers_file_exists">RTNETLINK answers: File exists<a class="headerlink" href="#rtnetlink_answers_file_exists" title="Permanent link">&para;</a></h2>
 <p><a href="https://github.com/haugene/docker-transmission-openvpn/issues/1558">TODO</a>: Conflicting LOCAL_NETWORK values. Short explanation and link to <a href="../vpn-networking/">networking</a></p>
+<h2 id="rtnetlink_answers_invalid_argument">RTNETLINK answers: Invalid argument<a class="headerlink" href="#rtnetlink_answers_invalid_argument" title="Permanent link">&para;</a></h2>
+<p>This can occur because you have specified an invalid <strong>subnet</strong> or possibly specified an IP Address in CIDR format instead of a subnet. Your LOCAL_NETWORK property must be aimed at a <strong>subnet</strong> and not at an IP Address. </p>
+<p>A valid example would be</p>
+<pre><code> ```
+ LOCAL_NETWORK=10.80.0.0/24
+ ```
+</code></pre>
+<p>but an invalid target route that would cause this error might be </p>
+<pre><code> ```
+ #Invalid because the subnet for this range would be 10.20.30.0/24
+ LOCAL_NETWORK=10.20.30.45/24
+ ```
+</code></pre>
+<p>To check your value, you can use a <a href="https://www.calculator.net/ip-subnet-calculator.html">subnet calculator</a>. 
+* Enter your IP Address - the portion before the mask, <code>10.20.30.45</code> here
+* select the subnet that matches - the <code>/24</code> portion here
+* Take the Network Address that is returned - <code>10.20.30.0</code> in this case </p>
 <h2 id="tunsetiff_tun_operation_not_permitted">TUNSETIFF tun: Operation not permitted<a class="headerlink" href="#tunsetiff_tun_operation_not_permitted" title="Permanent link">&para;</a></h2>
 <p>This is usually a question of permissions. Have you set the <a href="https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities">NET_ADMIN capabilities</a> to the container? What if you use <code>docker run --privileged</code>, do you still get that error?</p>
 <p>This is an error where we haven't got too much information. If the hints above get you nowhere, create an issue.</p>
