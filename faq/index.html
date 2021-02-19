@@ -337,6 +337,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how_do_i_enable_authentication_in_the_web_ui" class="md-nav__link">
+    How do I enable authentication in the web ui
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#how_do_i_verify_that_my_traffic_is_using_vpn" class="md-nav__link">
     How do I verify that my traffic is using VPN
   </a>
@@ -503,6 +510,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how_do_i_enable_authentication_in_the_web_ui" class="md-nav__link">
+    How do I enable authentication in the web ui
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#how_do_i_verify_that_my_traffic_is_using_vpn" class="md-nav__link">
     How do I verify that my traffic is using VPN
   </a>
@@ -592,6 +606,7 @@
                 
                 <ul>
 <li><a href="#the_container_runs_but_i_cant_access_the_web_ui">The container runs, but I can't access the web ui</a></li>
+<li><a href="#how_do_i_enable_authentication_in_the_web_ui">How do I enable authentication in the web ui</a></li>
 <li><a href="#how_do_i_verify_that_my_traffic_is_using_vpn">How do I verify that my traffic is using VPN</a></li>
 <li><a href="#rtnetlink_answers_file_exists">RTNETLINK answers: File exists</a></li>
 <li><a href="#rtnetlink_answers_invalid_argument">RTNETLINK answers: Invalid argument</a></li>
@@ -604,6 +619,22 @@
 </ul>
 <h2 id="the_container_runs_but_i_cant_access_the_web_ui">The container runs, but I can't access the web ui<a class="headerlink" href="#the_container_runs_but_i_cant_access_the_web_ui" title="Permanent link">&para;</a></h2>
 <p><a href="https://github.com/haugene/docker-transmission-openvpn/issues/1558">TODO</a>: Short explanation and link to <a href="../vpn-networking/">networking</a></p>
+<h2 id="how_do_i_enable_authentication_in_the_web_ui">How do I enable authentication in the web ui<a class="headerlink" href="#how_do_i_enable_authentication_in_the_web_ui" title="Permanent link">&para;</a></h2>
+<p>You can do this either by setting the appropriate fields in <code>settings.json</code> which is
+found in TRANSMISSION_HOME which defaults to <code>/data/transmission-home</code> so it will be available
+on your host where you mount the <code>/data</code> volume. Remember that Transmission overwrites the config
+when it shuts down, so do this when the container is not running.</p>
+<p>Or you can set it using the convenience environment variables. They will then override the settings
+on every container startup. The environment variables you have to set are:</p>
+<ul>
+<li><code>TRANSMISSION_RPC_USERNAME=username</code></li>
+<li><code>TRANSMISSION_RPC_PASSWORD=password</code></li>
+<li><code>TRANSMISSION_RPC_AUTHENTICATION_REQUIRED=true</code></li>
+</ul>
+<p>PS: Be cautious of special characters in the username or password. We've had multiple errors with
+that and have not provided a fix yet. Escaping special characters could be an option, but it the
+easiest solution is just to avoid them. Make the password longer instead ;)
+Or write it into <code>settings.json</code> manually as first described.</p>
 <h2 id="how_do_i_verify_that_my_traffic_is_using_vpn">How do I verify that my traffic is using VPN<a class="headerlink" href="#how_do_i_verify_that_my_traffic_is_using_vpn" title="Permanent link">&para;</a></h2>
 <p>There are many ways of doing this, and I welcome you to add to this list if you have any suggestsions.</p>
 <p>You can exec into the container and throug the shell use <code>curl</code> to ask for your public IP. There are
