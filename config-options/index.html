@@ -12,7 +12,7 @@
         <link rel="canonical" href="http://haugene.github.io/docker-transmission-openvpn/config-options/">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.1">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a3f8f96a.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.1655a90d.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.7fa14f5b.min.css">
@@ -367,15 +367,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#transmission_configuration_options" class="md-nav__link">
-    Transmission configuration options
+  <a href="#user_configuration_options" class="md-nav__link">
+    User configuration options
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#user_configuration_options" class="md-nav__link">
-    User configuration options
+  <a href="#transmission_configuration_options" class="md-nav__link">
+    Transmission configuration options
   </a>
   
 </li>
@@ -556,15 +556,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#transmission_configuration_options" class="md-nav__link">
-    Transmission configuration options
+  <a href="#user_configuration_options" class="md-nav__link">
+    User configuration options
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#user_configuration_options" class="md-nav__link">
-    User configuration options
+  <a href="#transmission_configuration_options" class="md-nav__link">
+    Transmission configuration options
   </a>
   
 </li>
@@ -780,9 +780,39 @@
 </tr>
 </tbody>
 </table>
+<h3 id="user_configuration_options">User configuration options<a class="headerlink" href="#user_configuration_options" title="Permanent link">&para;</a></h3>
+<p>By default everything will run as the root user. However, it is possible to change who runs the transmission process.
+You may set the following parameters to customize the user id that runs transmission.</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Function</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PUID</code></td>
+<td>Sets the user id who will run transmission</td>
+<td><code>PUID=1003</code></td>
+</tr>
+<tr>
+<td><code>PGID</code></td>
+<td>Sets the group id for the transmission user</td>
+<td><code>PGID=1003</code></td>
+</tr>
+</tbody>
+</table>
 <h3 id="transmission_configuration_options">Transmission configuration options<a class="headerlink" href="#transmission_configuration_options" title="Permanent link">&para;</a></h3>
-<p>You may override Transmission options by setting the appropriate environment variable. A full list of variables can be found in the Transmission documentation <a href="https://github.com/transmission/transmission/wiki/Editing-Configuration-Files">here</a>.</p>
-<p>The environment variables are the same name as found in the transmission documentation linked above but must be translated as shown below:</p>
+<p>In previous versions of this container the settings were not persistent but was generated from environment variables on container startup.
+This had the benefit of being very explicit and reproducable but you had to provide Transmission config as environment variables if you
+wanted them to stay that way between container restarts. This felt cumbersome to many.</p>
+<p>As of version 3.0 this is no longer true. Settings are now persisted in the <code>/data/transmission-home</code> folder in the container and as
+long as you mount <code>/data</code> you should be able to configure Transmission using the UI as you normally would.</p>
+<p>You may still override Transmission options by setting environment variables if that's your thing.
+The variables are named after the transmission config they target but are prefixed with <code>TRANSMISSION_</code>, capitalized, and <code>-</code> is converted to <code>_</code>.</p>
+<p>For example:</p>
 <table>
 <thead>
 <tr>
@@ -809,34 +839,10 @@
 </tr>
 </tbody>
 </table>
-<p>As you can see the variables are prefixed with <code>TRANSMISSION_</code>, the variable is capitalized, and <code>-</code> is converted to <code>_</code>.</p>
-<p>Transmission options changed in the WebUI or in settings.json will be overridden at startup and will not survive after a reboot of the container. You may want to use these variables in order to keep your preferences.</p>
-<p>PS: <code>TRANSMISSION_BIND_ADDRESS_IPV4</code> will be overridden to the IP assigned to your OpenVPN tunnel interface.
-This is to prevent leaking the host IP.</p>
-<h3 id="user_configuration_options">User configuration options<a class="headerlink" href="#user_configuration_options" title="Permanent link">&para;</a></h3>
-<p>By default everything will run as the root user. However, it is possible to change who runs the transmission process.
-You may set the following parameters to customize the user id that runs transmission.</p>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Function</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>PUID</code></td>
-<td>Sets the user id who will run transmission</td>
-<td><code>PUID=1003</code></td>
-</tr>
-<tr>
-<td><code>PGID</code></td>
-<td>Sets the group id for the transmission user</td>
-<td><code>PGID=1003</code></td>
-</tr>
-</tbody>
-</table>
+<p>A full list of variables can be found in the Transmission documentation <a href="https://github.com/transmission/transmission/wiki/Editing-Configuration-Files">here</a>.</p>
+<p>All variables overridden by environment variables will be logged during startup.</p>
+<p>PS: <code>TRANSMISSION_BIND_ADDRESS_IPV4</code> will automatically be overridden to the IP assigned to your OpenVPN tunnel interface.
+This ensures that Transmission only listens for torrent traffic on the VPN interface and is part of the fail safe mechanisms.</p>
 <h3 id="dropping_default_route_from_iptables_advanced">Dropping default route from iptables (advanced)<a class="headerlink" href="#dropping_default_route_from_iptables_advanced" title="Permanent link">&para;</a></h3>
 <p>Some VPNs do not override the default route, but rather set other routes with a lower metric.
 This might lead to the default route (your untunneled connection) to be used.</p>
@@ -948,10 +954,10 @@ To enable this feature, you'll need to mount the /scripts directory.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.217ffd95.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.f5903571.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.926459b3.min.js"></script>
+      <script src="../assets/javascripts/bundle.4e3fea51.min.js"></script>
       
     
   </body>
