@@ -636,7 +636,8 @@ on every container startup. The environment variables you have to set are:</p>
 <p>PS: Be cautious of special characters in the username or password. We've had multiple errors with
 that and have not provided a fix yet. Escaping special characters could be an option, but the
 easiest solution is just to avoid them. Make the password longer instead ;)
-Or write it into <code>settings.json</code> manually as first described.</p>
+Or write it into <code>settings.json</code> manually as first described.
+Also, look up differences between how <a href="https://support.asg.com/mob/mvw/10_0/mv_ag/using_quotes_with_yaml_special_characters.htm">yaml special characters</a> are escaped vs in shell</p>
 <h2 id="how_do_i_verify_that_my_traffic_is_using_vpn">How do I verify that my traffic is using VPN<a class="headerlink" href="#how_do_i_verify_that_my_traffic_is_using_vpn" title="Permanent link">&para;</a></h2>
 <p>There are many ways of doing this, and I welcome you to add to this list if you have any suggestsions.</p>
 <p>You can exec into the container and throug the shell use <code>curl</code> to ask for your public IP. There are
